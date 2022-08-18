@@ -8,7 +8,7 @@
  */
 
 import React, {useState, useEffect, useRef} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, ImageBackground} from 'react-native';
 
 
 
@@ -51,16 +51,15 @@ const App = () => {
     <View style={styles.container}>
       <Text style = {styles.time}>{time}</Text>
 
-
-      <View style = {styles.clock}>
-      <View style = {styles.center}/>
-      <View style = {[styles.hourHand, {transform: [{rotate: hourHand.current}, {translateY: -50}]}]}/>
+      <ImageBackground style = {styles.dial} source={require('./dial.png')}>
+    <View style = {styles.clock}>
+      
+        <View style = {styles.center}/>
+        <View style = {[styles.hourHand, {transform: [{rotate: hourHand.current}, {translateY: -50}]}]}/>
         <View style = {[styles.minuteHand, {transform: [{rotate: minuteHand.current}, {translateY: -78}]}]}/>
         <View style = {[styles.secondHand, {transform: [{rotate: secHand}, {translateY: -80}]}]}/>
-      </View>
-
-
-
+    </View>
+</ImageBackground>
       <Text style = {styles.date}>{date}</Text>
     </View>
   );
@@ -88,12 +87,13 @@ const styles = StyleSheet.create({
   clock:{
     borderWidth: 3,
     borderColor: 'white',
-    width: 350,
-    height: 350,
-    borderRadius: 175,
+    width: 340,
+    height: 340,
+    borderRadius: 170,
     margin: 60,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    transform: [{translateX: -55}, {translateY: -55}],
   },
   hourHand:{
     width: 5,
@@ -126,6 +126,11 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     position: 'absolute',
+  },
+  dial:{
+    width: 350,
+    height: 350,
+    margin: 60
   }
 });
 
