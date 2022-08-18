@@ -55,7 +55,7 @@ const App = () => {
       <View style = {styles.clock}>
       <View style = {styles.center}/>
       <View style = {[styles.hourHand, {transform: [{rotate: hourHand.current}, {translateY: -50}]}]}/>
-        <View style = {[styles.minuteHand, {transform: [{rotate: minuteHand.current}, {translateY: -80}]}]}/>
+        <View style = {[styles.minuteHand, {transform: [{rotate: minuteHand.current}, {translateY: -78}]}]}/>
         <View style = {[styles.secondHand, {transform: [{rotate: secHand}, {translateY: -80}]}]}/>
       </View>
 
@@ -99,18 +99,26 @@ const styles = StyleSheet.create({
     width: 5,
     height: 100,
     backgroundColor: 'white',
-    position: 'absolute'
+    position: 'absolute',
+    borderColor: 'white',
+    borderWidth: 3,
+    borderRadius: 50,
   },
   minuteHand:{
     width: 5,
     height: 150,
     backgroundColor: 'white',
-    position: 'absolute'
+    position: 'absolute',
+    borderColor: 'white',
+    borderWidth: 3,
+    borderRadius: 50,
   },
   secondHand:{
     width: 3,
     height: 150,
     backgroundColor: 'orange',
+    borderColor: 'orange',
+    borderWidth: 1,
   },
   center:{
     backgroundColor: 'white',
